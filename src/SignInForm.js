@@ -34,8 +34,8 @@ const SignInForm = ({ onSuccess }) => {
       validateOnMount
       validationSchema={validationSchema}
       initialValues={{
-        email: 'john@doe.com',
-        password: '12345678',
+        email: '',
+        password: '',
         remember: false
       }}
       onSubmit={submitHandler}
