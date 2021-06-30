@@ -1,0 +1,83 @@
+.root {
+  --bg: #fff;
+
+  display: flex;
+  cursor: pointer;
+}
+
+.box {
+  display: inline-block;
+  line-height: 0;
+}
+
+.box input {
+  position: absolute;
+  opacity: 0;
+}
+
+.box > span {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: solid 1px var(--color-gray-s);
+  background-color: var(--bg);
+
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color var(--default-transition-options),
+    border var(--default-transition-options);
+}
+
+.box > span > span {
+  opacity: 0;
+  color: #fff;
+
+  transition: opacity var(--default-transition-options);
+}
+
+.box > span svg {
+  fill: currentColor;
+}
+
+.root:hover .box > span {
+  --bg: var(--color-gray-m);
+}
+
+.root:active .box > span {
+  --bg: var(--color-gray-l);
+}
+
+.root.error .box > span {
+  --bg: var(--color-red-light);
+  border-color: transparent;
+}
+
+.root .box > input:checked + span {
+  --bg: var(--color-primary);
+  border-color: transparent;
+}
+
+.root .box > input:checked + span > span {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.root:hover .box > input:checked + span {
+  --bg: var(--color-primary-hover);
+}
+
+.root:active .box > input:checked + span {
+  --bg: var(--color-primary-active);
+}
+
+.box > input:focus + span {
+  border: solid 2px var(--color-gray) !important;
+}
+
+.label {
+  margin-left: 12px;
+  padding-top: 3px;
+}

@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import Auth from './Auth'
+import { useCallback, useState } from 'react'
+import Profile from './Profile'
+import { useTransition, animated, config } from 'react-spring'
+import { userStorage } from './util'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App () {
+  const [user, setUser] = useState(userStorage.get() || null)
+  const transitions = useTransition(user, {
+    from: { opacity: 0, scale: 1.5, filter: 'blur(10px)' },
+    enter: { opacity: 1, scale: 1, filter: 'blur(0px)' },
+    leave: { opacity: 0, scale: 1.5, filter: 'blur(10px)' },
+    config: config.stiff
+  })
+
+  const authHandler = useCallback((res) => {
+    setUser(res.user)
+  }, [setUser])
+
+  const logoutHandler = useCallback(() => {
+    setUser(null)
+    userStorage.clear()
+  }, [setUser])
+
+  return transitions(
+    (style, user) => {
+      return (
+        user
+          ? <Profile user={user} onLogOut={logoutHandler} />
+          : (
+            <animated.div className={'centredContainer auth'} style={style}>
+              <Auth onSuccess={authHandler} />
+            </animated.div>
+            )
+      )
+    })
 }
 
-export default App;
+export default App

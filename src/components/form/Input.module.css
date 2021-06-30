@@ -1,0 +1,110 @@
+.inputRoot {
+  position: relative;
+  font-family: var(--font-family-roboto);
+  display: inline-block;
+  width: 100%;
+}
+
+.textFonts {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  composes: textFonts;
+
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+
+  pointer-events: none;
+
+  color: var(--color-gray);
+
+  transition:
+    font-size var(--default-transition-options),
+    height var(--default-transition-options),
+    opacity var(--default-transition-options);
+}
+
+.input {
+  composes: textFonts;
+
+  font-family: inherit;
+  border: none;
+  background: none;
+  box-shadow: var(--default-shadow);
+  outline: none;
+  border-radius: 4px;
+
+  color: var(--color-black);
+  padding: 26px 16px 6px;
+  width: 100%;
+
+  background: #fff;
+
+  transition:
+    box-shadow var(--default-transition-options),
+    color var(--default-transition-options),
+    background-color var(--default-transition-options);
+}
+
+.input:focus + .label,
+.input[value]:not([value=""]) + .label,
+.filled .input + .label {
+  height: 34px;
+  font-size: 13px;
+}
+
+.input:disabled {
+  color: var(--color-gray);
+  cursor: not-allowed;
+}
+
+.input:disabled + .label {
+  opacity: 0.24;
+}
+
+.input:focus {
+  box-shadow: var(--active-shadow) !important;
+}
+
+.input:not(:disabled):hover,
+.input:not(:focus):hover {
+  box-shadow: var(--hover-shadow);
+}
+
+.errorMessage {
+  color: var(--color-red);
+  font-size: 16px;
+}
+
+.hasError .input {
+  background: var(--color-red-light);
+  box-shadow: var(--error-shadow);
+}
+
+.errorContainer {
+  padding-top: 8px;
+  margin-top: -20px;
+  opacity: 0;
+
+  transition: margin-top var(--default-transition-options), opacity var(--default-transition-options);
+}
+
+.hasError .errorContainer {
+  margin-top: 0;
+  opacity: 1;
+}

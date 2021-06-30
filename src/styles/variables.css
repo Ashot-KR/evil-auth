@@ -1,0 +1,32 @@
+:root {
+  --default-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08);
+  --error-shadow: 0px 4px 4px rgba(255, 196, 196, 0.04), 0px 4px 40px rgba(255, 196, 196, 0.24);
+  --success-shadow: 0px 4px 4px rgba(39, 174, 96, 0.04), 0px 4px 40px rgba(39, 174, 96, 0.24);
+  --hover-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 56px rgba(51, 51, 51, 0.16);
+  --active-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 24px rgba(51, 51, 51, 0.24);
+
+  --default-transition-options: 0.15s ease;
+
+  --font-family-montserrat: 'Montserrat', sans-serif;
+  --font-family-roboto: 'Roboto', sans-serif;
+
+  --color-black: #111;
+
+  --color-primary: #6E41E2;
+  --color-primary-disabled: #E3DAF9;
+  --color-primary-hover: #5835B0;
+  --color-primary-active: #472C8A;
+
+  --color-blue: #428BF9;
+
+  --color-green: #27AE60;
+
+  --color-gray: rgba(17, 17, 17, 0.48);
+  --color-gray-s: #d4d4d4;
+  --color-gray-m: #FAFAFA;
+  --color-gray-l: #F1F1F1;
+  --color-gray-k: #6B6B6B;
+
+  --color-red: #DB524E;
+  --color-red-light: #F9E3E3;
+}
