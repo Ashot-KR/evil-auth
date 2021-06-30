@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    env:
+      PUBLIC_URL: https://ashot-kr.github.io/evil-auth
     steps:
       - uses: actions/checkout@v2
 
